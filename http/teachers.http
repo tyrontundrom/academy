@@ -1,0 +1,18 @@
+GET http://localhost:8080/teacher
+
+###
+
+POST http://localhost:8080/teacher
+Content-Type: application/json
+
+{
+  "firstName": "Jan",
+  "lastName": "Kowal",
+  "age": 29,
+  "email": "jan@example.pl",
+  "subject": "informatyka"
+}
+
+###
+
+DELETE http://localhost:8080/teacher/1
