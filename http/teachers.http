@@ -5,13 +5,18 @@ GET http://localhost:8080/teacher
 POST http://localhost:8080/teacher
 Content-Type: application/json
 
-[{
+{
   "firstName": "Jan",
   "lastName": "Kowal",
-  "age": 39,
+  "age": 18,
   "email": "jan@example.pl",
   "subject": "informatyka"
-},
+}
+
+###
+
+POST http://localhost:8080/teacher
+Content-Type: application/json
 
   {
     "firstName": "Marian",
@@ -19,7 +24,12 @@ Content-Type: application/json
     "age": 45,
     "email": "marian@example.pl",
     "subject": "marketing"
-  },
+  }
+
+###
+
+POST http://localhost:8080/teacher
+Content-Type: application/json
 
 {
   "firstName": "Jerzy",
@@ -27,7 +37,7 @@ Content-Type: application/json
   "age": 47,
   "email": "jerzy@example.pl",
   "subject": "historia"
-}]
+}
 
 ###
 
