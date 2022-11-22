@@ -57,4 +57,20 @@ class TeacherService implements TeacherUseCase {
         return repository.findAll(Sort.by(field));
     }
 
+    @Override
+    public List<Teacher> findByFirstName(String firstName) {
+        return repository.findTeacherByFirstName(firstName);
+    }
+
+    @Override
+    public List<Teacher> findByLastName(String lastName) {
+        return repository.findTeacherByLastName(lastName);
+    }
+
+    @Override
+    public List<Teacher> findByFirstNameAndLastName(String firstName, String lastName) {
+        return repository.findTeacherByFirstNameAndLastName(firstName, lastName);
+    }
+
+
 }

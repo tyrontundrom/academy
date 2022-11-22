@@ -19,4 +19,10 @@ public interface StudentUseCase {
     Page<Student> findStudentsPaging(int size);
 
     List<Student> findAllStudentsWithSort(String field);
+
+    List<Student> findByFirstName(String firstName);
+
+    List<Student> findByLastName(String lastName);
+
+    List<Student> findByFirstNameAndLastName(String firstName, String lastName);
 }

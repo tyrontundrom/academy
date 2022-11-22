@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -33,8 +34,18 @@ class TeacherController {
     }
 
     @GetMapping
-    public List<Teacher> findAllTeachers() {
-        return service.findAllTeachers();
+    public List<Teacher> findAllTeachers(
+            @RequestParam Optional<String> firstName,
+            @RequestParam Optional<String> lastName) {
+        if (firstName.isPresent() & lastName.isPresent()) {
+            return service.findByFirstNameAndLastName(firstName.get(), lastName.get());
+        } else if (firstName.isPresent()) {
+            return service.findByFirstName(firstName.get());
+        } else if (lastName.isPresent()) {
+            return service.findByLastName(lastName.get());
+        } else {
+            return service.findAllTeachers();
+        }
     }
 
     @GetMapping("page/{size}")

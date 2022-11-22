@@ -3,6 +3,7 @@ package com.example.academy.application;
 import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.db.StudentJpaRepository;
 import com.example.academy.domain.Student;
+import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -55,4 +56,18 @@ class StudentService implements StudentUseCase {
         return repository.findAll(Sort.by(field));
     }
 
+    @Override
+    public List<Student> findByFirstName(String firstName) {
+        return repository.findStudentByFirstName(firstName);
+    }
+
+    @Override
+    public List<Student> findByLastName(String lastName) {
+        return repository.findStudentByLastName(lastName);
+    }
+
+    @Override
+    public List<Student> findByFirstNameAndLastName(String firstName, String lastName) {
+        return repository.findStudentByFirstNameAndLastName(firstName, lastName);
+    }
 }

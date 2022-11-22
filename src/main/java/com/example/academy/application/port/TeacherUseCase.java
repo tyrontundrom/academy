@@ -19,4 +19,10 @@ public interface TeacherUseCase {
 
     List<Teacher> findAllTeachersWithSort(String field);
 
+    List<Teacher> findByFirstName(String firstName);
+
+    List<Teacher> findByLastName(String lastName);
+
+    List<Teacher> findByFirstNameAndLastName(String firstName, String lastName);
+
 }

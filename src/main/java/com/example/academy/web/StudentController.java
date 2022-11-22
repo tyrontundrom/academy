@@ -4,9 +4,11 @@ import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.domain.Student;
 import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -31,8 +33,27 @@ class StudentController {
     }
 
     @GetMapping
-    public List<Student> findAllStudents() {
-        return service.findAllStudents();
+    public List<Student> findAllStudents(
+            @RequestParam Optional<String> firstName,
+            @RequestParam Optional<String> lastName) {
+        if (firstName.isPresent() & lastName.isPresent()) {
+            return service.findByFirstNameAndLastName(firstName.get(), lastName.get());
+        } else if (firstName.isPresent()) {
+            return service.findByFirstName(firstName.get());
+        } else if (lastName.isPresent()) {
+            return service.findByLastName(lastName.get());
+        } else {
+            return service.findAllStudents();
+        }
     }
 
+    @GetMapping("page/{size}")
+    public Page<Student> findStudentsPaging(@PathVariable int size) {
+        return service.findStudentsPaging(size);
+    }
+
+    @GetMapping("sort/{field}")
+    public List<Student> findAllStudentsWithSort(@PathVariable String field) {
+        return service.findAllStudentsWithSort(field);
+    }
 }
