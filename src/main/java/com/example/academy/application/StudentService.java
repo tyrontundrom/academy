@@ -4,6 +4,9 @@ import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.db.StudentJpaRepository;
 import com.example.academy.domain.Student;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,4 +44,15 @@ class StudentService implements StudentUseCase {
     public List<Student> findAllStudents() {
         return repository.findAll();
     }
+
+    @Override
+    public Page<Student> findStudentsPaging(int size) {
+        return repository.findAll(Pageable.ofSize(size));
+    }
+
+    @Override
+    public List<Student> findAllStudentsWithSort(String field) {
+        return repository.findAll(Sort.by(field));
+    }
+
 }

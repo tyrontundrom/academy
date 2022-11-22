@@ -2,8 +2,12 @@ package com.example.academy.application;
 
 import com.example.academy.application.port.TeacherUseCase;
 import com.example.academy.db.TeacherJpaRepository;
+import com.example.academy.domain.Student;
 import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,4 +46,15 @@ class TeacherService implements TeacherUseCase {
     public List<Teacher> findAllTeachers() {
         return repository.findAll();
     }
+
+    @Override
+    public Page<Teacher> findTeachersPaging(int size) {
+        return repository.findAll(Pageable.ofSize(size));
+    }
+
+    @Override
+    public List<Teacher> findAllTeachersWithSort(String field) {
+        return repository.findAll(Sort.by(field));
+    }
+
 }
