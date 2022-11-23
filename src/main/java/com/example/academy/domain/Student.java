@@ -29,7 +29,7 @@ public class Student {
     private String email;
     private String subject;
 
-    @ManyToMany(mappedBy = "students")
+    @ManyToMany(mappedBy = "students", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Teacher> teachers = new HashSet<>();
 
 }

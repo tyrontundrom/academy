@@ -24,9 +24,18 @@ Content-Type: application/json
 {
   "firstName": "Jan",
   "lastName": "Kowal",
-  "age": 18,
+  "age": 29,
   "email": "jan@example.pl",
-  "subject": "informatyka"
+  "subject": "informatyka",
+  "students": [
+    {
+    "firstName": "Kamil",
+    "lastName": "Woźniak",
+    "age": 18,
+    "email": "kamil@example.pl",
+    "subject": "informatyka"
+  }
+  ]
 }
 
 ###

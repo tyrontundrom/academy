@@ -2,6 +2,75 @@ GET http://localhost:8080/student
 
 ###
 
+GET http://localhost:8080/student/page/2
+
+###
+
+GET http://localhost:8080/student/sort/age
+
+###
+
+GET http://localhost:8080/student?firstName=Kamil
+
+###
+
+GET http://localhost:8080/student?firstName=Tomasz&lastName=Małysz
+
+###
+
+POST http://localhost:8080/student
+Content-Type: application/json
+
+{
+  "firstName": "Tomasz",
+  "lastName": "Małysz",
+  "age": 19,
+  "email": "tomasz@example.pl",
+  "subject": "informatyka",
+  "students": [
+    {
+      "firstName": "Stanisław",
+      "lastName": "Kostka",
+      "age": 48,
+      "email": "stanisalaw@example.pl",
+      "subject": "informatyka"
+    }
+  ]
+}
+
+###
+
+POST http://localhost:8080/student
+Content-Type: application/json
+
+{
+  "firstName": "Adrian",
+  "lastName": "Dudek",
+  "age": 22,
+  "email": "adrian@example.pl",
+  "subject": "marketing"
+}
+
+###
+
+POST http://localhost:8080/student
+Content-Type: application/json
+
+{
+  "firstName": "Anna",
+  "lastName": "Jaworska",
+  "age": 21,
+  "email": "anna@example.pl",
+  "subject": "biologia"
+}
+
+###
+
+DELETE http://localhost:8080/student/1
+
+###
+
+
 POST http://localhost:8080/student
 Content-Type: application/json
 
@@ -12,3 +81,4 @@ Content-Type: application/json
   "email": "kamil@example.pl",
   "subject": "informatyka"
 }
+

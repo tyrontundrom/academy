@@ -31,7 +31,7 @@ public class Teacher {
     private String email;
     private String subject;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable
     private Set<Student> students = new HashSet<>();
 
