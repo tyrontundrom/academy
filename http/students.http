@@ -82,3 +82,15 @@ Content-Type: application/json
   "subject": "informatyka"
 }
 
+###
+
+PUT http://localhost:8080/student/21
+Content-Type: application/json
+
+{
+  "firstName": "Michał",
+  "lastName": "Woźniak",
+  "age": 18,
+  "email": "kamil@example.pl",
+  "subject": "informatyka"
+}

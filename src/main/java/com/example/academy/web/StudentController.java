@@ -2,7 +2,6 @@ package com.example.academy.web;
 
 import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.domain.Student;
-import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +26,9 @@ class StudentController {
         service.removeStudentById(id);
     }
 
-    @PutMapping
-    public void updateTeacher(Student student) {
-        service.updateStudent(student);
+    @PutMapping("{id}")
+    public void updateStudent(@PathVariable Long id, @RequestBody Student student) {
+        service.updateStudent(id, student);
     }
 
     @GetMapping

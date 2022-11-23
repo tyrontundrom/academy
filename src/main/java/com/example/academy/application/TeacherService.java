@@ -2,7 +2,6 @@ package com.example.academy.application;
 
 import com.example.academy.application.port.TeacherUseCase;
 import com.example.academy.db.TeacherJpaRepository;
-import com.example.academy.domain.Student;
 import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -32,8 +30,8 @@ class TeacherService implements TeacherUseCase {
 
     @Transactional
     @Override
-    public void updateTeacher(Teacher teacher) {
-        Teacher updateTeacher = repository.findById(teacher.getId()).get();
+    public void updateTeacher(Long id, Teacher teacher) {
+        Teacher updateTeacher = repository.findById(id).get();
         updateTeacher.setFirstName(teacher.getFirstName());
         updateTeacher.setLastName(teacher.getLastName());
         updateTeacher.setEmail(teacher.getEmail());

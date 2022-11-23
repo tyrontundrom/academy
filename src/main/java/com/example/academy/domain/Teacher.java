@@ -3,10 +3,8 @@ package com.example.academy.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -35,8 +33,4 @@ public class Teacher {
     @JoinTable
     private Set<Student> students = new HashSet<>();
 
-    public void addStudent(Student student) {
-        students.add(student);
-        student.getTeachers().add(this);
-    }
 }

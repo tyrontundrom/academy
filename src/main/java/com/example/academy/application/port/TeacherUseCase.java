@@ -11,7 +11,7 @@ public interface TeacherUseCase {
 
     void removeTeacherById(Long id);
 
-    void updateTeacher(Teacher teacher);
+    void updateTeacher(Long id, Teacher teacher);
 
     List<Teacher> findAllTeachers();
 

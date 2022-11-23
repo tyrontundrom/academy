@@ -67,3 +67,16 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:8080/teacher/1
+
+###
+
+PUT http://localhost:8080/teacher/6
+Content-Type: application/json
+
+{
+  "firstName": "Konrad",
+  "lastName": "Raczynski",
+  "age": 33,
+  "email": "konrad@example.pl",
+  "subject": "automatyka"
+}

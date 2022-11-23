@@ -3,7 +3,6 @@ package com.example.academy.application;
 import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.db.StudentJpaRepository;
 import com.example.academy.domain.Student;
-import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,8 +30,8 @@ class StudentService implements StudentUseCase {
 
     @Transactional
     @Override
-    public void updateStudent(Student student) {
-        Student updateStudent = repository.findById(student.getId()).get();
+    public void updateStudent(Long id, Student student) {
+        Student updateStudent = repository.findById(id).get();
         updateStudent.setFirstName(student.getFirstName());
         updateStudent.setLastName(student.getLastName());
         updateStudent.setEmail(student.getEmail());

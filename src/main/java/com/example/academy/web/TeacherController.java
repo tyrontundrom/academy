@@ -1,6 +1,5 @@
 package com.example.academy.web;
 
-import com.example.academy.application.port.StudentUseCase;
 import com.example.academy.application.port.TeacherUseCase;
 import com.example.academy.domain.Teacher;
 import lombok.AllArgsConstructor;
@@ -16,7 +15,6 @@ import java.util.Optional;
 class TeacherController {
 
     private final TeacherUseCase service;
-    private final StudentUseCase studentUseCase;
 
     @PostMapping
     public void createTeacher(@RequestBody Teacher teacher) {
@@ -28,9 +26,9 @@ class TeacherController {
         service.removeTeacherById(id);
     }
 
-    @PutMapping
-    public void updateTeacher(Teacher teacher) {
-        service.updateTeacher(teacher);
+    @PutMapping("{id}")
+    public void updateTeacher(@PathVariable Long id, @RequestBody Teacher teacher) {
+        service.updateTeacher(id, teacher);
     }
 
     @GetMapping
